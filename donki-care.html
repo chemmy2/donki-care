@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>Donki 照顾指南</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+            line-height: 1.6;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f5f5f7;
+            color: #222;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px 16px 40px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.9rem;
+        }
+
+        header p {
+            margin: 4px 0 0;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.9fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 16px 18px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            margin-bottom: 18px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card h3 {
+            margin-top: 12px;
+            margin-bottom: 4px;
+            font-size: 1.02rem;
+        }
+
+        .card p {
+            margin: 4px 0;
+            font-size: 0.96rem;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 4px 0 8px;
+        }
+
+        li {
+            margin: 2px 0;
+        }
+
+        .time-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 6px;
+            margin-bottom: 8px;
+            font-size: 0.94rem;
+        }
+
+        .time-table th,
+        .time-table td {
+            border: 1px solid #e0e0e0;
+            padding: 6px 8px;
+            vertical-align: top;
+        }
+
+        .time-table th {
+            background: #fafafa;
+            font-weight: 600;
+            width: 80px;
+            white-space: nowrap;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 1px 8px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            background: #eef7ff;
+            color: #1d5bbf;
+            margin-left: 4px;
+        }
+
+        .badge-danger {
+            background: #ffeef0;
+            color: #c81e1e;
+        }
+
+        .badge-soft {
+            background: #f2f2f7;
+            color: #555;
+        }
+
+        .highlight {
+            background: #fff8e1;
+            border-left: 3px solid #ffb300;
+            padding: 6px 8px;
+            margin: 8px 0;
+            font-size: 0.92rem;
+        }
+
+        .alert {
+            background: #fff5f5;
+            border-left: 3px solid #e53e3e;
+            padding: 8px 10px;
+            font-size: 0.92rem;
+            margin-top: 8px;
+        }
+
+        .muted {
+            color: #777;
+            font-size: 0.88rem;
+        }
+
+        .pill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 4px;
+            margin-bottom: 6px;
+        }
+
+        .pill {
+            font-size: 0.82rem;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
+        }
+
+        .footer-note {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .contact-list p {
+            margin: 3px 0;
+        }
+
+        .small {
+            font-size: 0.86rem;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <header>
+        <h1>Donki 照顾指南 🐱</h1>
+        <p>给临时小铲屎官的操作手册</p>
+        <p class="tagline">目标：吃好、拉好、尿好、安全、少折腾你</p>
+    </header>
+
+    <div class="grid">
+        <!-- 左侧主说明 -->
+        <div>
+            <section class="card" id="diet">
+                <h2>🍽 饮食与用药 <span class="badge">每天执行</span></h2>
+
+                <table class="time-table">
+                    <tr>
+                        <th>早上<br>约 8:00</th>
+                        <td>
+                            <ul>
+                                <li>一袋湿粮 <strong>Royal Canin</strong>。</li>
+                                <li>更换饮水杯里的水（使用滤水器里的水）。</li>
+                                <li>提供每日干粮袋中 <strong>一半</strong> 的干粮。</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>下午<br>18:30–19:00</th>
+                        <td>
+                            <ul>
+                                <li>一袋湿粮 <strong>Leonardo</strong>。</li>
+                                <li>按照干粮袋上的提示，确认今天是否需要喂
+                                    <strong>¼ 粒 Prednicortone（激素药）</strong>。<br>
+                                    <span class="small">（频次：每两天 ¼ 粒。我会在每日干粮袋上标好是否需要给药。）</span>
+                                </li>
+                                <li>如果当天需要给药但日常药不够用，可以用备用药片，掰出 <strong>¼ 粒</strong> 给 Donki。</li>
+                                <li><strong>确认今天是否有尿尿</strong>（见下方“猫砂盆”部分）。</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>睡前</th>
+                        <td>
+                            <ul>
+                                <li>提供当日干粮袋中剩下的干粮。</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+
+                <p class="highlight">
+                    所有湿粮可以使用一次性咖啡滤纸盛放，这样可以减少洗碗频次，随用随扔即可。
+                </p>
+
+                <div class="alert">
+                    <strong>重要：</strong>Donki <strong>不能吃猫粮以外的其他食物</strong>，不要喂零食、人类剩饭、肉骨头等。
+                </div>
+            </section>
+
+            <section class="card" id="litter">
+                <h2>🧺 猫砂盆与排泄 <span class="badge">每天检查</span></h2>
+
+                <h3>每日清理</h3>
+                <ul>
+                    <li>每天早上出门前清理一次猫砂盆。</li>
+                    <li>可以使用前一天装干粮的塑料袋装用过的猫砂，打结丢垃圾桶。</li>
+                    <li>如果发现猫砂明显变少，可以添加备用猫砂。</li>
+                </ul>
+
+                <h3>排尿情况</h3>
+                <ul>
+                    <li>Donki 一般每天会尿 <strong>两次</strong>：
+                        <ul>
+                            <li>一次在早上 <strong>6–8 点</strong>；</li>
+                            <li>一次在晚上 <strong>19–21 点</strong>。</li>
+                        </ul>
+                    </li>
+                    <li>如果当天只看到他尿了一次，只要 <strong>两次之间间隔没有超过 24 小时</strong>，也可以接受。</li>
+                    <li><strong>每日务必确认 Donki 至少有一次尿尿。</strong></li>
+                </ul>
+
+                <h3>排便情况</h3>
+                <ul>
+                    <li>正常情况：<strong>每两天至少一次便便</strong>。</li>
+                    <li>便秘时间 <strong>不能超过 3 天</strong>。</li>
+                    <li>如果便秘超过 2 天，可以喂 <strong>1 ml Zoolac 益生菌</strong> 帮助消化。</li>
+                </ul>
+            </section>
+
+            <section class="card" id="other">
+                <h2>🏠 家中禁止区域与安全</h2>
+
+                <h3>禁止区域</h3>
+                <ul>
+                    <li><strong>阳台：</strong>出门和晚上睡觉前，请确认所有阳台门窗都已关紧，尤其是可以开小缝的窗。</li>
+                </ul>
+
+                <h3>垃圾与桌面</h3>
+                <ul>
+                    <li>出门前请确认垃圾袋已经打结系好，放在 Donki 不容易翻到的位置。</li>
+                    <li>人不在桌面附近时，桌面上<strong>不能留任何食物</strong>，尤其是加工食品和对猫有害的食物。</li>
+                </ul>
+
+                <h3>有害食物（请勿接触）</h3>
+                <p class="small">以下为常见对猫有害食物，请不要让 Donki 接触或舔到残渣：</p>
+                <div class="pill-list">
+                    <span class="pill">洋葱、蒜、韭菜、葱类（含加工品）</span>
+                    <span class="pill">葡萄 &amp; 葡萄干</span>
+                    <span class="pill">巧克力</span>
+                    <span class="pill">酒精、发酵生面团</span>
+                    <span class="pill">木糖醇</span>
+                    <span class="pill">茶叶、咖啡</span>
+                </div>
+
+                <h3>花卉与植物</h3>
+                <p class="small">假期期间可能会收到鲜花，请尽量不要把花放在 Donki 能够碰到的地方。</p>
+                <p>以下为对猫高危的花卉（请尽量避免在家中摆放）：</p>
+                <div class="pill-list">
+                    <span class="pill badge-danger">百合</span>
+                    <span class="pill badge-danger">郁金香</span>
+                    <span class="pill badge-danger">风信子</span>
+                    <span class="pill">夹竹桃</span>
+                    <span class="pill">芦荟</span>
+                    <span class="pill">万年青</span>
+                    <span class="pill">绿萝</span>
+                    <span class="pill">圣诞红</span>
+                </div>
+                <p class="highlight">
+                    如果方便的话，最简单的做法是：<strong>避免在 Donki 能触及到的地方摆任何植物</strong>。
+                </p>
+
+                <h3>如果不幸拉肚子 💩</h3>
+                <ul>
+                    <li>可以喂 <strong>Zoolac 1 ml</strong>（食品层里，针筒状包装）。</li>
+                    <li>如果粘在屁股上，只能麻烦你帮忙清理：
+                        <ul>
+                            <li>用剪刀小心剪掉“屎毛”；</li>
+                            <li>我真心希望你完全不会遇到这一步，这不是愉快的体验……</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>最坏情况的备选方案</h3>
+                <p>
+                    如果你觉得 Donki 的存在严重影响到你的日常生活，<strong>最差情况</strong>可以帮忙把 Donki 送回我家，
+                    然后每天帮忙去我家查看他的情况。
+                </p>
+                <p class="small">
+                    我会留一把我家的钥匙给你，我们可以当面一起确认我已经把钥匙交给你。
+                </p>
+            </section>
+        </div>
+
+        <!-- 右侧：紧急信息 + 心理减压 -->
+        <div>
+            <section class="card" id="emergency">
+                <h2>🚑 医院与紧急情况</h2>
+
+                <h3>什么时候需要联系医院？</h3>
+                <ul>
+                    <li>Donki 明显精神不振、一直躲着、不爱活动。</li>
+                    <li>持续呕吐或反复干呕。</li>
+                    <li>超过 <strong>一天多没有尿尿</strong>（特别是你确定猫砂盆里没有新的尿团）。</li>
+                </ul>
+
+                <h3>首选医院</h3>
+                <div class="contact-list">
+                    <p><strong>AniCura Copenhagen Animal Hospital</strong></p>
+                    <p>电话：<strong>36 17 57 11</strong></p>
+                    <p class="small">
+                        联系时可以报我的电话号码：<strong>71 80 81 21</strong>，<br>
+                        他们可以查到 Donki 的全部就诊记录。
+                    </p>
+                </div>
+
+                <h3>就诊时间与费用</h3>
+                <ul>
+                    <li>尽量在<strong>工作日 17:00 前</strong>联系电话或去就诊，费用相对正常。</li>
+                    <li>如在急诊时间联系，费用会明显更高，但如果 Donki 状况危急，该花就要花。</li>
+                </ul>
+
+                <h3>付费与决策</h3>
+                <ul>
+                    <li>一般情况（不是做手术）：
+                        <ul>
+                            <li>请直接遵从医生医嘱，让医生像平时一样把账单寄到我的信箱即可。</li>
+                        </ul>
+                    </li>
+                    <li>如果医生建议做<strong>手术</strong>，且费用预计 <strong>超过 30,000 DKK</strong>：
+                        <ul>
+                            <li>请尝试通过微信联系我。</li>
+                            <li>如果确实联系不上，可以联系我或杨帆：</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="contact-list small">
+                    <p>杨帆 手机号：<strong>50 14 33 41</strong></p>
+                </div>
+
+                <div class="alert">
+                    <strong>真的很重要的一点：</strong><br>
+                    我完全相信你的责任心。所以即使万一万一万一 Donki 出现什么问题，我也不会怪你。<br>
+                    你能帮忙照顾他，对我已经是很大的帮助。🙏
+                </div>
+            </section>
+
+            <section class="card" id="summary">
+                <h2>📌 每日小 checklist</h2>
+                <ul>
+                    <li>✔ 早上：喂 Royal Canin 湿粮 + 换水 + 给半袋干粮。</li>
+                    <li>✔ 下午：喂 Leonardo 湿粮 + 看干粮袋提示是否需要喂 Prednicortone ¼ 粒。</li>
+                    <li>✔ 晚上：补上剩余干粮。</li>
+                    <li>✔ 每天确认：Donki 至少尿了一次。</li>
+                    <li>✔ 每 2 天确认：Donki 是否有便便。</li>
+                    <li>✔ 出门/睡前：关好阳台门窗、桌上不留食物、垃圾袋系好。</li>
+                    <li>✔ 花/植物不要放在 Donki 能碰到的地方。</li>
+                </ul>
+
+                <p class="footer-note">
+                    有任何不确定的情况，宁可多问一句、早一点联系，也完全没有关系。<br>
+                    谢谢你帮忙照顾 Donki。💙
+                </p>
+            </section>
+        </div>
+    </div>
+</div>
+</body>
+</html>
