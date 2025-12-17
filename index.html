@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Donki 照顾指南</title>
+  <title>Donki Care Guide</title>
 
   <style>
     :root {
@@ -25,9 +25,37 @@
       padding: 28px 36px 56px;
     }
 
+    @media (max-width: 900px) {
+      .page { padding: 22px 20px 44px; }
+    }
+
     header {
       text-align: center;
       margin-bottom: 18px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .lang-btn {
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      padding: 6px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: #222;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .lang-btn[aria-pressed="true"]{
+      border-color: #1d5bbf;
+      box-shadow: 0 1px 3px rgba(29,91,191,0.15);
+      font-weight: 600;
     }
 
     .header-row {
@@ -44,6 +72,10 @@
       border-radius: 50%;
       object-fit: cover;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    @media (max-width: 768px) {
+      .logo { width: 60px; height: 60px; }
     }
 
     header h1 {
@@ -69,13 +101,8 @@
       gap: 20px;
     }
 
-    @media (max-width: 900px) {
-      .page { padding: 22px 20px 44px; }
-    }
-
     @media (max-width: 768px) {
       .grid { grid-template-columns: minmax(0, 1fr); }
-      .logo { width: 60px; height: 60px; }
     }
 
     .card {
@@ -222,15 +249,21 @@
 
 <body>
   <div class="page">
+
+    <!-- Language Toggle -->
+    <div class="topbar" aria-label="Language toggle">
+      <button class="lang-btn" id="btn-zh" type="button" aria-pressed="true">中文</button>
+      <button class="lang-btn" id="btn-en" type="button" aria-pressed="false">EN</button>
+    </div>
+
     <!-- Header with logo -->
     <header>
       <div class="header-row">
-        <!-- Make sure this filename matches the photo in your GitHub repo -->
         <img class="logo" src="IMG_8391.jpeg" alt="Donki logo" />
         <div>
-          <h1>Donki 照顾指南 🐱</h1>
-          <p>给临时小铲屎官的操作手册</p>
-          <p class="tagline">目标：吃好、拉好、尿好、安全、少折腾你</p>
+          <h1 data-i18n="title">Donki 照顾指南 🐱</h1>
+          <p data-i18n="subtitle">给临时小铲屎官的操作手册</p>
+          <p class="tagline" data-i18n="tagline">目标：吃好、拉好、尿好、安全、少折腾你</p>
         </div>
       </div>
     </header>
@@ -239,144 +272,142 @@
       <!-- LEFT COLUMN -->
       <div>
         <section class="card" id="diet">
-          <h2>🍽 饮食与用药 <span class="badge">每天执行</span></h2>
+          <h2>
+            <span data-i18n="diet_h2">🍽 饮食与用药</span>
+            <span class="badge" data-i18n="badge_daily">每天执行</span>
+          </h2>
 
           <table class="time-table">
             <tr>
-              <th>早上<br>约 8:00</th>
+              <th data-i18n="diet_morning_th">早上<br>约 8:00</th>
               <td>
                 <ul>
-                  <li>一袋湿粮 <strong>Royal Canin</strong>。</li>
-                  <li>更换饮水杯里的水（使用滤水器里的水）。</li>
-                  <li>提供每日干粮袋中 <strong>一半</strong> 的干粮。</li>
+                  <li data-i18n="diet_morning_1">一袋湿粮 <strong>Royal Canin</strong>。</li>
+                  <li data-i18n="diet_morning_2">更换饮水杯里的水（使用滤水器里的水）。</li>
+                  <li data-i18n="diet_morning_3">提供每日干粮袋中 <strong>一半</strong> 的干粮。</li>
                 </ul>
               </td>
             </tr>
             <tr>
-              <th>下午<br>18:30–19:00</th>
+              <th data-i18n="diet_evening_th">下午<br>18:30–19:00</th>
               <td>
                 <ul>
-                  <li>一袋湿粮 <strong>Leonardo</strong>。</li>
-                  <li>
+                  <li data-i18n="diet_evening_1">一袋湿粮 <strong>Leonardo</strong>。</li>
+                  <li data-i18n="diet_evening_2">
                     按照干粮袋上的提示，确认今天是否需要喂
-                    <strong>¼ 粒 Prednicortone（激素药）</strong>。<br />
-                    <span class="small">（频次：每两天 ¼ 粒。我会在每日干粮袋上标好是否需要给药。）</span>
+                    <strong>¼ 粒 Prednicortone（激素药）</strong>。<br>
+                    <span class="small" data-i18n="diet_evening_2_note">（频次：每两天 ¼ 粒。我会在每日干粮袋上标好是否需要给药。）</span>
                   </li>
-                  <li>如果当天需要给药但日常药不够用，可以用备用药片，掰出 <strong>¼ 粒</strong> 给 Donki。</li>
-                  <li><strong>确认今天是否有尿尿</strong>（见下方“猫砂盆”部分）。</li>
+                  <li data-i18n="diet_evening_3">如果当天需要给药但日常药不够用，可以用备用药片，掰出 <strong>¼ 粒</strong> 给 Donki。</li>
+                  <li data-i18n="diet_evening_4"><strong>确认今天是否有尿尿</strong>（见下方“猫砂盆”部分）。</li>
                 </ul>
               </td>
             </tr>
             <tr>
-              <th>睡前</th>
+              <th data-i18n="diet_bed_th">睡前</th>
               <td>
                 <ul>
-                  <li>提供当日干粮袋中剩下的干粮。</li>
+                  <li data-i18n="diet_bed_1">提供当日干粮袋中剩下的干粮。</li>
                 </ul>
               </td>
             </tr>
           </table>
 
-          <p class="highlight">
+          <p class="highlight" data-i18n="diet_tip">
             所有湿粮可以使用一次性咖啡滤纸盛放，这样可以减少洗碗频次，随用随扔即可。
           </p>
 
-          <div class="alert">
+          <div class="alert" data-i18n="diet_alert">
             <strong>重要：</strong>Donki <strong>不能吃猫粮以外的其他食物</strong>，不要喂零食、人类剩饭、肉骨头等。
           </div>
         </section>
 
         <section class="card" id="litter">
-          <h2>🧺 猫砂盆与排泄 <span class="badge">每天检查</span></h2>
+          <h2>
+            <span data-i18n="litter_h2">🧺 猫砂盆与排泄</span>
+            <span class="badge" data-i18n="badge_check">每天检查</span>
+          </h2>
 
-          <h3>每日清理</h3>
+          <h3 data-i18n="litter_clean_h3">每日清理</h3>
           <ul>
-            <li>每天早上出门前清理一次猫砂盆。</li>
-            <li>可以使用前一天装干粮的塑料袋装用过的猫砂，打结丢垃圾桶。</li>
-            <li>如果发现猫砂明显变少，可以添加备用猫砂。</li>
+            <li data-i18n="litter_clean_1">每天早上出门前清理一次猫砂盆。</li>
+            <li data-i18n="litter_clean_2">可以使用前一天装干粮的塑料袋装用过的猫砂，打结丢垃圾桶。</li>
+            <li data-i18n="litter_clean_3">如果发现猫砂明显变少，可以添加备用猫砂。</li>
           </ul>
 
-          <h3>排尿情况</h3>
+          <h3 data-i18n="litter_pee_h3">排尿情况</h3>
           <ul>
-            <li>
-              Donki 一般每天会尿 <strong>两次</strong>：
-              <ul>
-                <li>一次在早上 <strong>6–8 点</strong>；</li>
-                <li>一次在晚上 <strong>19–21 点</strong>。</li>
-              </ul>
+            <li data-i18n="litter_pee_1">
+              Donki 一般每天会尿 <strong>两次</strong>：一次在早上 <strong>6–8 点</strong>；一次在晚上 <strong>19–21 点</strong>。
             </li>
-            <li>如果当天只看到他尿了一次，只要 <strong>两次之间间隔没有超过 24 小时</strong>，也可以接受。</li>
-            <li><strong>每日务必确认 Donki 至少有一次尿尿。</strong></li>
+            <li data-i18n="litter_pee_2">如果当天只看到他尿了一次，只要 <strong>两次之间间隔没有超过 24 小时</strong>，也可以接受。</li>
+            <li data-i18n="litter_pee_3"><strong>每日务必确认 Donki 至少有一次尿尿。</strong></li>
           </ul>
 
-          <h3>排便情况</h3>
+          <h3 data-i18n="litter_poop_h3">排便情况</h3>
           <ul>
-            <li>正常情况：<strong>每两天至少一次便便</strong>。</li>
-            <li>便秘时间 <strong>不能超过 3 天</strong>。</li>
-            <li>如果便秘超过 2 天，可以喂 <strong>1 ml Zoolac 益生菌</strong> 帮助消化。</li>
+            <li data-i18n="litter_poop_1">正常情况：<strong>每两天至少一次便便</strong>。</li>
+            <li data-i18n="litter_poop_2">便秘时间 <strong>不能超过 3 天</strong>。</li>
+            <li data-i18n="litter_poop_3">如果便秘超过 2 天，可以喂 <strong>1 ml Zoolac 益生菌</strong> 帮助消化。</li>
           </ul>
         </section>
 
         <section class="card" id="other">
-          <h2>🏠 家中禁止区域与安全</h2>
+          <h2 data-i18n="safety_h2">🏠 家中禁止区域与安全</h2>
 
-          <h3>禁止区域</h3>
+          <h3 data-i18n="safety_forbidden_h3">禁止区域</h3>
           <ul>
-            <li><strong>阳台：</strong>出门和晚上睡觉前，请确认所有阳台门窗都已关紧，尤其是可以开小缝的窗。</li>
+            <li data-i18n="safety_forbidden_1"><strong>阳台：</strong>出门和晚上睡觉前，请确认所有阳台门窗都已关紧，尤其是可以开小缝的窗。</li>
           </ul>
 
-          <h3>垃圾与桌面</h3>
+          <h3 data-i18n="safety_trash_h3">垃圾与桌面</h3>
           <ul>
-            <li>出门前请确认家里的垃圾桶垃圾袋已经打结系好，Donki 有时会翻垃圾袋。</li>
-            <li>人不在桌面附近时，桌面上<strong>不能留任何食物</strong>，尤其是人工加工过的食物和对猫有害的食物。</li>
+            <li data-i18n="safety_trash_1">出门前请确认家里的垃圾桶垃圾袋已经打结系上，Donki 有时会翻垃圾袋。</li>
+            <li data-i18n="safety_trash_2">人不在桌面附近时，桌面上<strong>不能留任何食物</strong>，尤其是加工食品和对猫有害的食物。</li>
           </ul>
 
-          <h3>香氛 / 精油 </h3>
+          <h3 data-i18n="safety_fragrance_h3">香氛 / 精油</h3>
           <ul>
-            <li><strong>照顾 Donki 期间希望家里不要摆放香氛/精油。</strong></li>
+            <li data-i18n="safety_fragrance_1"><strong>照顾 Donki 期间希望家里不要摆放香氛/精油。</strong></li>
           </ul>
 
-          <h3>有害食物（请勿接触）</h3>
-          <p class="small">以下为常见对猫有害食物，请不要让 Donki 接触或舔到残渣：</p>
+          <h3 data-i18n="safety_food_h3">有害食物（请勿接触）</h3>
+          <p class="small" data-i18n="safety_food_note">以下为常见对猫有害食物，请不要让 Donki 接触或舔到残渣：</p>
           <div class="pill-list">
-            <span class="pill">洋葱、蒜、韭菜、葱类（含加工品）</span>
-            <span class="pill">葡萄 &amp; 葡萄干</span>
-            <span class="pill">巧克力</span>
-            <span class="pill">酒精、发酵生面团</span>
-            <span class="pill">木糖醇</span>
-            <span class="pill">茶叶、咖啡</span>
+            <span class="pill" data-i18n="pill_onion">洋葱、蒜、韭菜、葱类（含加工品）</span>
+            <span class="pill" data-i18n="pill_grape">葡萄 &amp; 葡萄干</span>
+            <span class="pill" data-i18n="pill_chocolate">巧克力</span>
+            <span class="pill" data-i18n="pill_alcohol">酒精、发酵生面团</span>
+            <span class="pill" data-i18n="pill_xylitol">木糖醇</span>
+            <span class="pill" data-i18n="pill_caffeine">茶叶、咖啡</span>
           </div>
 
-          <h3>花卉与植物</h3>
-          <p class="small">假期期间也有可能会收到鲜花，请尽量不要把花放在 Donki 能够触及的地方。</p>
-          <p>以下为对猫高危的花卉（请尽量避免在家中摆放）：</p>
+          <h3 data-i18n="safety_plants_h3">花卉与植物</h3>
+          <p class="small" data-i18n="safety_plants_note">假期期间可能会收到鲜花，请尽量不要把花放在 Donki 能够碰到的地方。</p>
+          <p data-i18n="safety_plants_list_intro">以下为对猫高危的花卉（请尽量避免在家中摆放）：</p>
           <div class="pill-list">
-            <span class="pill badge-danger">百合</span>
-            <span class="pill badge-danger">郁金香</span>
-            <span class="pill badge-danger">风信子</span>
-            <span class="pill">夹竹桃</span>
-            <span class="pill">芦荟</span>
-            <span class="pill">万年青</span>
-            <span class="pill">绿萝</span>
-            <span class="pill">圣诞红</span>
+            <span class="pill badge-danger" data-i18n="pill_lily">百合</span>
+            <span class="pill badge-danger" data-i18n="pill_tulip">郁金香</span>
+            <span class="pill badge-danger" data-i18n="pill_hyacinth">风信子</span>
+            <span class="pill" data-i18n="pill_oleander">夹竹桃</span>
+            <span class="pill" data-i18n="pill_aloe">芦荟</span>
+            <span class="pill" data-i18n="pill_dief">万年青</span>
+            <span class="pill" data-i18n="pill_pothos">绿萝</span>
+            <span class="pill" data-i18n="pill_poinsettia">圣诞红</span>
           </div>
-          <p class="highlight">
-            如果方便的话，最简单的做法是：<strong>避免在 Donki 能触及到的地方摆放任何植物</strong>。
+          <p class="highlight" data-i18n="safety_plants_tip">
+            如果方便的话，最简单的做法是：<strong>避免在 Donki 能触及到的地方摆任何植物</strong>。
           </p>
 
-          <h3>如果不幸拉肚子 💩</h3>
+          <h3 data-i18n="safety_diarrhea_h3">如果不幸拉肚子 💩</h3>
           <ul>
-            <li>可以喂 <strong>Zoolac 1 ml</strong>（食品层里，针筒状包装）。</li>
-            <li>
-              如果他不小心拉肚子（概率很低），可能需要帮忙清理他的屁股（用剪刀剪掉屎毛）。
-              希望你完全不要遇到，不是美好经历。
-            </li>
+            <li data-i18n="safety_diarrhea_1">可以喂 <strong>Zoolac 1 ml</strong>（食品层里，针筒状包装）。</li>
+            <li data-i18n="safety_diarrhea_2">如果粘在屁股上，需要帮忙清理（小心剪掉“屎毛”）。</li>
           </ul>
 
-          <h3>最坏情况的备选方案</h3>
-          <p>
-            如果 Donki 影响到你的日常生活，最差的情况可以把 Donki 送回我家，
-            然后每天帮忙到我家查看 Donki 的情况。我会留一把我家的钥匙给你，我们可以一起确认我是否给到你了。
+          <h3 data-i18n="safety_worst_h3">最坏情况的备选方案</h3>
+          <p data-i18n="safety_worst_p">
+            如果你觉得 Donki 的存在严重影响到你的日常生活，最差情况可以把 Donki 送回我家，然后每天去我家查看他的情况。
           </p>
         </section>
       </div>
@@ -384,109 +415,360 @@
       <!-- RIGHT COLUMN -->
       <div>
         <section class="card" id="emergency">
-          <h2>🚑 医院与紧急情况</h2>
+          <h2 data-i18n="emergency_h2">🚑 医院与紧急情况</h2>
 
-          <h3>什么时候需要联系医院？</h3>
+          <h3 data-i18n="emergency_when_h3">什么时候需要联系医院？</h3>
           <ul>
-            <li>Donki 明显精神不振、一直躲着、不爱活动。</li>
-            <li>持续呕吐或反复干呕。</li>
-            <li>超过 <strong>一天多没有尿尿</strong>（特别是你确定猫砂盆里没有新的尿团）。</li>
+            <li data-i18n="emergency_when_1">Donki 明显精神不振、一直躲着、不爱活动。</li>
+            <li data-i18n="emergency_when_2">持续呕吐或反复干呕。</li>
+            <li data-i18n="emergency_when_3">超过 <strong>一天多没有尿尿</strong>（确认猫砂盆里没有新尿团）。</li>
           </ul>
 
-          <h3>首选医院</h3>
+          <h3 data-i18n="emergency_hospital_h3">首选医院</h3>
           <div class="contact-list">
             <p><strong>AniCura Copenhagen Animal Hospital</strong></p>
-            <p>电话：<strong>36 17 57 11</strong></p>
-            <p class="small">
-              联系时可以报我的电话号码：<strong>71 80 81 21</strong>，<br />
-              他们可以查到 Donki 的全部就诊记录。
+            <p data-i18n="emergency_phone">电话：<strong>36 17 57 11</strong></p>
+            <p class="small" data-i18n="emergency_owner_phone">
+              联系时可以报我的电话号码：<strong>71 80 81 21</strong>，他们可以查到 Donki 的就诊记录。
             </p>
           </div>
 
-          <h3>就诊时间与费用</h3>
+          <h3 data-i18n="emergency_cost_h3">就诊时间与费用</h3>
           <ul>
-            <li>尽量在 <strong>工作日 17:00 前</strong> 联系或就诊，费用相对正常。</li>
-            <li>如在急诊时间联系，费用更高；若 Donki 确实危急，也可以急诊处理。</li>
+            <li data-i18n="emergency_cost_1">尽量在 <strong>工作日 17:00 前</strong> 联系或就诊，费用相对正常。</li>
+            <li data-i18n="emergency_cost_2">急诊费用更高，但若 Donki 确实危急，该花就要花。</li>
           </ul>
 
-          <h3>付费与决策</h3>
+          <h3 data-i18n="emergency_pay_h3">付费与决策</h3>
           <ul>
-            <li>一般情况（不是做手术）：请直接遵从医生医嘱，并让医生按惯常寄账单到我的信箱。</li>
-            <li>
-              如果医生建议做 <strong>手术</strong> 且费用预计 <strong>超过 30,000 DKK</strong>：
-              <ul>
-                <li>请尝试通过微信联系我。</li>
-                <li>如果确实联系不上，可以联系我或者杨帆。</li>
-              </ul>
-            </li>
+            <li data-i18n="emergency_pay_1">一般情况（非手术）：请直接遵从医生医嘱，账单照常寄到我的信箱。</li>
+            <li data-i18n="emergency_pay_2">如需手术且费用预计 <strong>超过 30,000 DKK</strong>：请尝试联系我；联系不上可联系杨帆。</li>
           </ul>
 
           <div class="contact-list small">
-            <p>杨帆 手机号：<strong>50 14 33 41</strong></p>
+            <p data-i18n="emergency_yangfan">杨帆 手机号：<strong>50 14 33 41</strong></p>
           </div>
 
-          <div class="alert">
-            <strong>真的很重要的一点：</strong><br />
-            我完全相信你的责任心。所以即使万一万一万一 Donki 出现什么问题，我也不会怪你。<br />
-            你能帮忙照顾他，对我已经是很大的帮助。🙏
+          <div class="alert" data-i18n="emergency_reassure">
+            <strong>真的很重要的一点：</strong><br>
+            我完全相信你的责任心。即使 Donki 出现问题，我也不会怪你。你能帮忙照顾他，对我已经是很大的帮助。🙏
           </div>
         </section>
 
-        <!-- Medicine calendar -->
         <section class="card" id="medicine-calendar">
-          <h2>💊 Prednicortone 用药日历</h2>
-          <p class="small">
-            时间范围：<strong>2025/12/19 – 2026/01/12</strong><br />
+          <h2 data-i18n="cal_h2">💊 Prednicortone 用药日历</h2>
+          <p class="small" data-i18n="cal_intro">
+            时间范围：<strong>2025/12/19 – 2026/01/12</strong><br>
             规则：每 <strong>两天</strong> 服用一次 <strong>¼ 粒</strong>，且 <strong>2025/12/19</strong> 为用药日。
           </p>
 
           <table class="calendar-table" aria-label="Prednicortone schedule">
             <tr>
-              <th>日期</th>
-              <th>用药</th>
+              <th data-i18n="cal_th_date">日期</th>
+              <th data-i18n="cal_th_action">用药</th>
             </tr>
-            <tr class="pill-day"><td>2025/12/19</td><td>💊 ¼ 粒 Prednicortone</td></tr>
-            <tr class="pill-day"><td>2025/12/21</td><td>💊 ¼ 粒 Prednicortone</td></tr>
-            <tr class="pill-day"><td>2025/12/23</td><td>💊 ¼ 粒 Prednicortone</td></tr>
-            <tr class="pill-day"><td>2025/12/25</td><td>💊 ¼ 粒 Prednicortone</td></tr>
-            <tr class="pill-day"><td>2025/12/27</td><td>💊 ¼ 粒 Prednicortone</td></tr>
-            <tr class="pill-day"><td>2025/12/29</td><td>💊 ¼ 粒 Prednicortone</td></tr>
-            <tr class="pill-day"><td>2025/12/31</td><td>💊 ¼ 粒 Prednicortone</td></tr>
-            <tr class="pill-day"><td>2026/01/02</td><td>💊 ¼ 粒 Prednicortone</td></tr>
-            <tr class="pill-day"><td>2026/01/04</td><td>💊 ¼ 粒 Prednicortone</td></tr>
-            <tr class="pill-day"><td>2026/01/06</td><td>💊 ¼ 粒 Prednicortone</td></tr>
-            <tr class="pill-day"><td>2026/01/08</td><td>💊 ¼ 粒 Prednicortone</td></tr>
-            <tr class="pill-day"><td>2026/01/10</td><td>💊 ¼ 粒 Prednicortone</td></tr>
-            <tr class="pill-day"><td>2026/01/12</td><td>💊 ¼ 粒 Prednicortone</td></tr>
+            <tr class="pill-day"><td>2025/12/19</td><td data-i18n="cal_dose">💊 ¼ 粒 Prednicortone</td></tr>
+            <tr class="pill-day"><td>2025/12/21</td><td data-i18n="cal_dose">💊 ¼ 粒 Prednicortone</td></tr>
+            <tr class="pill-day"><td>2025/12/23</td><td data-i18n="cal_dose">💊 ¼ 粒 Prednicortone</td></tr>
+            <tr class="pill-day"><td>2025/12/25</td><td data-i18n="cal_dose">💊 ¼ 粒 Prednicortone</td></tr>
+            <tr class="pill-day"><td>2025/12/27</td><td data-i18n="cal_dose">💊 ¼ 粒 Prednicortone</td></tr>
+            <tr class="pill-day"><td>2025/12/29</td><td data-i18n="cal_dose">💊 ¼ 粒 Prednicortone</td></tr>
+            <tr class="pill-day"><td>2025/12/31</td><td data-i18n="cal_dose">💊 ¼ 粒 Prednicortone</td></tr>
+            <tr class="pill-day"><td>2026/01/02</td><td data-i18n="cal_dose">💊 ¼ 粒 Prednicortone</td></tr>
+            <tr class="pill-day"><td>2026/01/04</td><td data-i18n="cal_dose">💊 ¼ 粒 Prednicortone</td></tr>
+            <tr class="pill-day"><td>2026/01/06</td><td data-i18n="cal_dose">💊 ¼ 粒 Prednicortone</td></tr>
+            <tr class="pill-day"><td>2026/01/08</td><td data-i18n="cal_dose">💊 ¼ 粒 Prednicortone</td></tr>
+            <tr class="pill-day"><td>2026/01/10</td><td data-i18n="cal_dose">💊 ¼ 粒 Prednicortone</td></tr>
+            <tr class="pill-day"><td>2026/01/12</td><td data-i18n="cal_dose">💊 ¼ 粒 Prednicortone</td></tr>
           </table>
 
-          <p class="calendar-note">
-            ✔ 标红行都是需要喂药的日子（每次 <strong>¼ 粒</strong>）。<br />
+          <p class="calendar-note" data-i18n="cal_note">
+            ✔ 标红行都是需要喂药的日子（每次 <strong>¼ 粒</strong>）。<br>
             ✔ 建议在<strong>下午喂 Leonardo 湿粮时</strong>同步给药，最不容易漏。
           </p>
         </section>
 
         <section class="card" id="summary">
-          <h2>📌 每日小 checklist</h2>
+          <h2 data-i18n="check_h2">📌 每日小 checklist</h2>
           <ul>
-            <li>✔ 早上：喂 Royal Canin 湿粮 + 换水 + 给半袋干粮。</li>
-            <li>✔ 下午：喂 Leonardo 湿粮 + 看干粮袋提示是否需要喂 Prednicortone ¼ 粒。</li>
-            <li>✔ 晚上：可以提供剩下干粮袋的干粮。</li>
-            <li>✔ 每天确认：Donki 至少尿一次尿。</li>
-            <li>✔ 每两天确认：Donki 是否有便便。</li>
-            <li>✔ 出门/睡前：关好阳台门窗、桌上不留任何食物、垃圾袋系好。</li>
-            <li>✔ 照顾期间不要摆放香氛/精油。</li>
-            <li>✔ 花/植物不要放在 Donki 能够触及的地方。</li>
+            <li data-i18n="check_1">✔ 早上：喂 Royal Canin 湿粮 + 换水 + 给半袋干粮。</li>
+            <li data-i18n="check_2">✔ 下午：喂 Leonardo 湿粮 + 看干粮袋提示是否需要喂 Prednicortone ¼ 粒。</li>
+            <li data-i18n="check_3">✔ 晚上：补上剩下干粮袋的干粮。</li>
+            <li data-i18n="check_4">✔ 每天确认：Donki 至少尿一次尿。</li>
+            <li data-i18n="check_5">✔ 每两天确认：Donki 是否有便便。</li>
+            <li data-i18n="check_6">✔ 出门/睡前：关好阳台门窗、桌上不留任何食物、垃圾袋系好。</li>
+            <li data-i18n="check_7">✔ 照顾期间不要摆放香氛/精油。</li>
+            <li data-i18n="check_8">✔ 花/植物不要放在 Donki 能够碰到的地方。</li>
           </ul>
 
-          <p class="footer-note">
-            有任何不确定的情况，宁可多问一句、早一点联系，也完全没有关系。<br />
+          <p class="footer-note" data-i18n="check_footer">
+            有任何不确定的情况，宁可多问一句、早一点联系，也完全没有关系。<br>
             谢谢你帮忙照顾 Donki。💙
           </p>
         </section>
       </div>
     </div>
   </div>
+
+  <script>
+    const I18N = {
+      zh: {
+        title: "Donki 照顾指南 🐱",
+        subtitle: "给临时小铲屎官的操作手册",
+        tagline: "目标：吃好、拉好、尿好、安全、少折腾你",
+
+        badge_daily: "每天执行",
+        badge_check: "每天检查",
+
+        diet_h2: "🍽 饮食与用药",
+        diet_morning_th: "早上<br>约 8:00",
+        diet_morning_1: "一袋湿粮 <strong>Royal Canin</strong>。",
+        diet_morning_2: "更换饮水杯里的水（使用滤水器里的水）。",
+        diet_morning_3: "提供每日干粮袋中 <strong>一半</strong> 的干粮。",
+        diet_evening_th: "下午<br>18:30–19:00",
+        diet_evening_1: "一袋湿粮 <strong>Leonardo</strong>。",
+        diet_evening_2:
+          "按照干粮袋上的提示，确认今天是否需要喂 <strong>¼ 粒 Prednicortone（激素药）</strong>。<br><span class=\"small\">（频次：每两天 ¼ 粒。我会在每日干粮袋上标好是否需要给药。）</span>",
+        diet_evening_2_note: "（频次：每两天 ¼ 粒。我会在每日干粮袋上标好是否需要给药。）",
+        diet_evening_3: "如果当天需要给药但日常药不够用，可以用备用药片，掰出 <strong>¼ 粒</strong> 给 Donki。",
+        diet_evening_4: "<strong>确认今天是否有尿尿</strong>（见下方“猫砂盆”部分）。",
+        diet_bed_th: "睡前",
+        diet_bed_1: "提供当日干粮袋中剩下的干粮。",
+        diet_tip: "所有湿粮可以使用一次性咖啡滤纸盛放，这样可以减少洗碗频次，随用随扔即可。",
+        diet_alert: "<strong>重要：</strong>Donki <strong>不能吃猫粮以外的其他食物</strong>，不要喂零食、人类剩饭、肉骨头等。",
+
+        litter_h2: "🧺 猫砂盆与排泄",
+        litter_clean_h3: "每日清理",
+        litter_clean_1: "每天早上出门前清理一次猫砂盆。",
+        litter_clean_2: "可以使用前一天装干粮的塑料袋装用过的猫砂，打结丢垃圾桶。",
+        litter_clean_3: "如果发现猫砂明显变少，可以添加备用猫砂。",
+        litter_pee_h3: "排尿情况",
+        litter_pee_1: "Donki 一般每天会尿 <strong>两次</strong>：一次在早上 <strong>6–8 点</strong>；一次在晚上 <strong>19–21 点</strong>。",
+        litter_pee_2: "如果当天只看到他尿了一次，只要 <strong>两次之间间隔没有超过 24 小时</strong>，也可以接受。",
+        litter_pee_3: "<strong>每日务必确认 Donki 至少有一次尿尿。</strong>",
+        litter_poop_h3: "排便情况",
+        litter_poop_1: "正常情况：<strong>每两天至少一次便便</strong>。",
+        litter_poop_2: "便秘时间 <strong>不能超过 3 天</strong>。",
+        litter_poop_3: "如果便秘超过 2 天，可以喂 <strong>1 ml Zoolac 益生菌</strong> 帮助消化。",
+
+        safety_h2: "🏠 家中禁止区域与安全",
+        safety_forbidden_h3: "禁止区域",
+        safety_forbidden_1: "<strong>阳台：</strong>出门和晚上睡觉前，请确认所有阳台门窗都已关紧，尤其是可以开小缝的窗。",
+        safety_trash_h3: "垃圾与桌面",
+        safety_trash_1: "出门前请确认家里的垃圾桶垃圾袋已经打结系上，Donki 有时会翻垃圾袋。",
+        safety_trash_2: "人不在桌面附近时，桌面上<strong>不能留任何食物</strong>，尤其是加工食品和对猫有害的食物。",
+        safety_fragrance_h3: "香氛 / 精油",
+        safety_fragrance_1: "<strong>照顾 Donki 期间希望家里不要摆放香氛/精油。</strong>",
+
+        safety_food_h3: "有害食物（请勿接触）",
+        safety_food_note: "以下为常见对猫有害食物，请不要让 Donki 接触或舔到残渣：",
+        pill_onion: "洋葱、蒜、韭菜、葱类（含加工品）",
+        pill_grape: "葡萄 &amp; 葡萄干",
+        pill_chocolate: "巧克力",
+        pill_alcohol: "酒精、发酵生面团",
+        pill_xylitol: "木糖醇",
+        pill_caffeine: "茶叶、咖啡",
+
+        safety_plants_h3: "花卉与植物",
+        safety_plants_note: "假期期间可能会收到鲜花，请尽量不要把花放在 Donki 能够碰到的地方。",
+        safety_plants_list_intro: "以下为对猫高危的花卉（请尽量避免在家中摆放）：",
+        pill_lily: "百合",
+        pill_tulip: "郁金香",
+        pill_hyacinth: "风信子",
+        pill_oleander: "夹竹桃",
+        pill_aloe: "芦荟",
+        pill_dief: "万年青",
+        pill_pothos: "绿萝",
+        pill_poinsettia: "圣诞红",
+        safety_plants_tip: "如果方便的话，最简单的做法是：<strong>避免在 Donki 能触及到的地方摆任何植物</strong>。",
+
+        safety_diarrhea_h3: "如果不幸拉肚子 💩",
+        safety_diarrhea_1: "可以喂 <strong>Zoolac 1 ml</strong>（食品层里，针筒状包装）。",
+        safety_diarrhea_2: "如果粘在屁股上，需要帮忙清理（小心剪掉“屎毛”）。",
+        safety_worst_h3: "最坏情况的备选方案",
+        safety_worst_p: "如果你觉得 Donki 的存在严重影响到你的日常生活，最差情况可以把 Donki 送回我家，然后每天去我家查看他的情况。",
+
+        emergency_h2: "🚑 医院与紧急情况",
+        emergency_when_h3: "什么时候需要联系医院？",
+        emergency_when_1: "Donki 明显精神不振、一直躲着、不爱活动。",
+        emergency_when_2: "持续呕吐或反复干呕。",
+        emergency_when_3: "超过 <strong>一天多没有尿尿</strong>（确认猫砂盆里没有新尿团）。",
+        emergency_hospital_h3: "首选医院",
+        emergency_phone: "电话：<strong>36 17 57 11</strong>",
+        emergency_owner_phone: "联系时可以报我的电话号码：<strong>71 80 81 21</strong>，他们可以查到 Donki 的就诊记录。",
+        emergency_cost_h3: "就诊时间与费用",
+        emergency_cost_1: "尽量在 <strong>工作日 17:00 前</strong> 联系或就诊，费用相对正常。",
+        emergency_cost_2: "急诊费用更高，但若 Donki 确实危急，该花就要花。",
+        emergency_pay_h3: "付费与决策",
+        emergency_pay_1: "一般情况（非手术）：请直接遵从医生医嘱，账单照常寄到我的信箱。",
+        emergency_pay_2: "如需手术且费用预计 <strong>超过 30,000 DKK</strong>：请尝试联系我；联系不上可联系杨帆。",
+        emergency_yangfan: "杨帆 手机号：<strong>50 14 33 41</strong>",
+        emergency_reassure: "<strong>真的很重要的一点：</strong><br>我完全相信你的责任心。即使 Donki 出现问题，我也不会怪你。你能帮忙照顾他，对我已经是很大的帮助。🙏",
+
+        cal_h2: "💊 Prednicortone 用药日历",
+        cal_intro: "时间范围：<strong>2025/12/19 – 2026/01/12</strong><br>规则：每 <strong>两天</strong> 服用一次 <strong>¼ 粒</strong>，且 <strong>2025/12/19</strong> 为用药日。",
+        cal_th_date: "日期",
+        cal_th_action: "用药",
+        cal_dose: "💊 ¼ 粒 Prednicortone",
+        cal_note: "✔ 标红行都是需要喂药的日子（每次 <strong>¼ 粒</strong>）。<br>✔ 建议在<strong>下午喂 Leonardo 湿粮时</strong>同步给药，最不容易漏。",
+
+        check_h2: "📌 每日小 checklist",
+        check_1: "✔ 早上：喂 Royal Canin 湿粮 + 换水 + 给半袋干粮。",
+        check_2: "✔ 下午：喂 Leonardo 湿粮 + 看干粮袋提示是否需要喂 Prednicortone ¼ 粒。",
+        check_3: "✔ 晚上：补上剩下干粮袋的干粮。",
+        check_4: "✔ 每天确认：Donki 至少尿一次尿。",
+        check_5: "✔ 每两天确认：Donki 是否有便便。",
+        check_6: "✔ 出门/睡前：关好阳台门窗、桌上不留任何食物、垃圾袋系好。",
+        check_7: "✔ 照顾期间不要摆放香氛/精油。",
+        check_8: "✔ 花/植物不要放在 Donki 能够碰到的地方。",
+        check_footer: "有任何不确定的情况，宁可多问一句、早一点联系，也完全没有关系。<br>谢谢你帮忙照顾 Donki。💙"
+      },
+
+      en: {
+        title: "Donki Care Guide 🐱",
+        subtitle: "Quick instructions for the temporary caregiver",
+        tagline: "Goal: eat well, poop well, pee well, stay safe, and cause you minimal trouble",
+
+        badge_daily: "Daily",
+        badge_check: "Daily check",
+
+        diet_h2: "🍽 Feeding & Medication",
+        diet_morning_th: "Morning<br>~ 08:00",
+        diet_morning_1: "1 pouch wet food: <strong>Royal Canin</strong>.",
+        diet_morning_2: "Replace drinking water (use filtered water).",
+        diet_morning_3: "Give <strong>half</strong> of the daily dry food bag.",
+        diet_evening_th: "Evening<br>18:30–19:00",
+        diet_evening_1: "1 pouch wet food: <strong>Leonardo</strong>.",
+        diet_evening_2:
+          "Check the label on the daily dry food bag: does Donki need <strong>¼ tablet Prednicortone</strong> today?<br><span class=\"small\">(Schedule: ¼ tablet every 2 days. I will mark the bag if medication is needed.)</span>",
+        diet_evening_2_note: "(Schedule: ¼ tablet every 2 days. I will mark the bag if medication is needed.)",
+        diet_evening_3: "If today is a pill day but the prepared pill is missing, use the backup tablets and give <strong>¼ tablet</strong>.",
+        diet_evening_4: "<strong>Confirm Donki peed today</strong> (see litter box section).",
+        diet_bed_th: "Before bed",
+        diet_bed_1: "Give the remaining dry food from the daily bag.",
+        diet_tip: "You can put wet food on a disposable coffee filter paper to reduce dishwashing.",
+        diet_alert: "<strong>Important:</strong> Donki should <strong>not eat any human food</strong> (no snacks, leftovers, bones, etc.).",
+
+        litter_h2: "🧺 Litter Box & Output",
+        litter_clean_h3: "Daily cleaning",
+        litter_clean_1: "Clean the litter box once every morning before going out.",
+        litter_clean_2: "Use yesterday’s dry food bag to collect clumps and tie it before throwing away.",
+        litter_clean_3: "If litter level is low, add backup litter.",
+        litter_pee_h3: "Pee",
+        litter_pee_1: "Usually pees <strong>twice</strong> a day: morning <strong>06–08</strong> and evening <strong>19–21</strong>.",
+        litter_pee_2: "One pee per day is acceptable if the gap is <strong>&lt; 24 hours</strong>.",
+        litter_pee_3: "<strong>Must confirm at least one pee per day.</strong>",
+        litter_poop_h3: "Poop",
+        litter_poop_1: "Normal: at least once every <strong>2 days</strong>.",
+        litter_poop_2: "Constipation should not exceed <strong>3 days</strong>.",
+        litter_poop_3: "If constipated for &gt; 2 days, give <strong>1 ml Zoolac</strong> probiotic.",
+
+        safety_h2: "🏠 Home Safety Rules",
+        safety_forbidden_h3: "Restricted area",
+        safety_forbidden_1: "<strong>Balcony:</strong> Before leaving and before sleep, ensure all balcony doors/windows are fully closed (especially the ones that can be left slightly open).",
+        safety_trash_h3: "Trash & food surfaces",
+        safety_trash_1: "Tie the trash bag before leaving. Donki may dig into trash.",
+        safety_trash_2: "When you are not around, do <strong>not</strong> leave any food on tables/counters—especially processed foods and toxic foods.",
+        safety_fragrance_h3: "Fragrance / Essential oils",
+        safety_fragrance_1: "<strong>Please do not use fragrance diffusers / essential oils while caring for Donki.</strong>",
+
+        safety_food_h3: "Toxic foods (avoid contact)",
+        safety_food_note: "Common toxic foods for cats—avoid exposure or residue:",
+        pill_onion: "Onion / garlic / chives / scallions (incl. cooked/processed)",
+        pill_grape: "Grapes & raisins",
+        pill_chocolate: "Chocolate",
+        pill_alcohol: "Alcohol / fermented dough",
+        pill_xylitol: "Xylitol",
+        pill_caffeine: "Tea / coffee",
+
+        safety_plants_h3: "Flowers & plants",
+        safety_plants_note: "You may receive flowers during the holidays. Please keep all plants out of Donki’s reach.",
+        safety_plants_list_intro: "High-risk plants (avoid at home if possible):",
+        pill_lily: "Lily (very dangerous)",
+        pill_tulip: "Tulip",
+        pill_hyacinth: "Hyacinth",
+        pill_oleander: "Oleander",
+        pill_aloe: "Aloe",
+        pill_dief: "Dieffenbachia",
+        pill_pothos: "Pothos",
+        pill_poinsettia: "Poinsettia",
+        safety_plants_tip: "Simplest rule: <strong>do not place any plants where Donki can reach</strong>.",
+
+        safety_diarrhea_h3: "If diarrhea happens 💩",
+        safety_diarrhea_1: "Give <strong>1 ml Zoolac</strong> (syringe packaging).",
+        safety_diarrhea_2: "If stool sticks to fur, you may need to clean/trim carefully.",
+        safety_worst_h3: "Worst-case backup plan",
+        safety_worst_p: "If Donki significantly affects your daily life, the fallback plan is to bring Donki back to my home and check on him daily there.",
+
+        emergency_h2: "🚑 Vet & Emergencies",
+        emergency_when_h3: "When to contact the vet?",
+        emergency_when_1: "Very low energy, hiding, not moving normally.",
+        emergency_when_2: "Repeated vomiting or persistent retching.",
+        emergency_when_3: "No pee for <strong>more than ~1 day</strong> (no new clumps in litter).",
+        emergency_hospital_h3: "Preferred hospital",
+        emergency_phone: "Phone: <strong>36 17 57 11</strong>",
+        emergency_owner_phone: "Tell them my phone number <strong>71 80 81 21</strong> so they can locate Donki’s medical record.",
+        emergency_cost_h3: "Timing & cost",
+        emergency_cost_1: "Prefer weekdays before <strong>17:00</strong> to avoid emergency fees.",
+        emergency_cost_2: "Emergency visits cost more, but if Donki is in trouble, go anyway.",
+        emergency_pay_h3: "Billing & decisions",
+        emergency_pay_1: "Non-surgery visits: follow vet instructions; bill can be sent to my mailbox as usual.",
+        emergency_pay_2: "If surgery is recommended and cost is <strong>&gt; 30,000 DKK</strong>: try to contact me; if unreachable, contact Yangfan.",
+        emergency_yangfan: "Yangfan phone: <strong>50 14 33 41</strong>",
+        emergency_reassure: "<strong>Important:</strong><br>I trust you. Even if something happens, I won’t blame you. Thanks for taking care of Donki. 🙏",
+
+        cal_h2: "💊 Prednicortone Schedule",
+        cal_intro: "Range: <strong>2025/12/19 – 2026/01/12</strong><br>Rule: <strong>¼ tablet</strong> every <strong>2 days</strong>, starting on <strong>2025/12/19</strong>.",
+        cal_th_date: "Date",
+        cal_th_action: "Action",
+        cal_dose: "💊 Prednicortone ¼ tablet",
+        cal_note: "✔ Highlighted rows are pill days (each time <strong>¼ tablet</strong>).<br>✔ Best to give together with the <strong>Leonardo wet food in the evening</strong>.",
+
+        check_h2: "📌 Daily Checklist",
+        check_1: "✔ Morning: Royal Canin wet + change water + half-bag dry food.",
+        check_2: "✔ Evening: Leonardo wet + check if today is a Prednicortone ¼-tablet day.",
+        check_3: "✔ Before bed: give remaining dry food.",
+        check_4: "✔ Daily: confirm at least one pee.",
+        check_5: "✔ Every 2 days: confirm poop.",
+        check_6: "✔ Before leaving / before sleep: close balcony doors/windows; no food left out; tie trash bag.",
+        check_7: "✔ No fragrance diffusers / essential oils during caretaking.",
+        check_8: "✔ Keep flowers/plants out of reach (preferably none).",
+        check_footer: "If anything feels uncertain, ask early—safety first.<br>Thank you for helping with Donki 💙"
+      }
+    };
+
+    function setLang(lang) {
+      const dict = I18N[lang] || I18N.zh;
+
+      // Update html lang
+      document.documentElement.lang = (lang === "en") ? "en" : "zh-Hans";
+
+      // Update all i18n nodes
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key] !== undefined) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      // Buttons state
+      const zhBtn = document.getElementById("btn-zh");
+      const enBtn = document.getElementById("btn-en");
+      const isZh = lang !== "en";
+      zhBtn.setAttribute("aria-pressed", isZh ? "true" : "false");
+      enBtn.setAttribute("aria-pressed", isZh ? "false" : "true");
+
+      // Persist
+      localStorage.setItem("donki_lang", lang);
+    }
+
+    // Hook buttons
+    document.getElementById("btn-zh").addEventListener("click", () => setLang("zh"));
+    document.getElementById("btn-en").addEventListener("click", () => setLang("en"));
+
+    // Initial language
+    const saved = localStorage.getItem("donki_lang");
+    setLang(saved || "zh");
+  </script>
 </body>
 </html>
-
